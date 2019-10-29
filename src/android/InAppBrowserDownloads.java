@@ -64,7 +64,7 @@ public class InAppBrowserDownloads implements DownloadListener{
         {
             if(r == PackageManager.PERMISSION_DENIED)
             {
-                Toast.makeText(plugin.cordova.getActivity().getApplicationContext(), "Error downloading file, missing storage permissions", Toast.LENGTH_LONG).show();
+                Toast.makeText(plugin.cordova.getActivity().getApplicationContext(), "下载文件失败, 未开启存储权限", Toast.LENGTH_LONG).show();
             } else {
                 InAppBrowserDownloads.this.processDownload();
             }
@@ -90,9 +90,9 @@ public class InAppBrowserDownloads implements DownloadListener{
             Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT); //This is important!
             intent.addCategory(Intent.CATEGORY_OPENABLE); //CATEGORY.OPENABLE
             intent.setType("*/*");//any application,any extension
-            Toast.makeText(plugin.cordova.getActivity().getApplicationContext(), "Downloading File '" + filename + "'", Toast.LENGTH_LONG).show();
+            Toast.makeText(plugin.cordova.getActivity().getApplicationContext(), "正在下载文件 '" + filename + "'", Toast.LENGTH_LONG).show();
         } catch (Exception exception) {
-            Toast.makeText(plugin.cordova.getActivity().getApplicationContext(), "Error downloading file, missing storage permissions", Toast.LENGTH_LONG).show();
+            Toast.makeText(plugin.cordova.getActivity().getApplicationContext(), "下载文件失败, 未开启存储权限", Toast.LENGTH_LONG).show();
             exception.printStackTrace();
         }
     }
